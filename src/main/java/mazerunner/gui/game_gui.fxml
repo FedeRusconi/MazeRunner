@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane style="-fx-font-family: Droid Sans Mono; -fx-background-image: url(&quot;background.jpg&quot;); -fx-background-repeat: stretch; -fx-background-position: center center;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mazerunner.gui.Controller">
+   <center>
+      <SplitPane dividerPositions="0.6224489795918368" maxWidth="700.0" orientation="VERTICAL" prefWidth="550.0" style="-fx-background-color: rgba(0,0,0,0.5); -fx-border-color: white;" BorderPane.alignment="CENTER">
+        <items>
+            <AnchorPane fx:id="mazeContainer" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,0.8);" />
+            <StackPane maxHeight="90.0">
+               <children>
+                  <BorderPane maxHeight="100.0" maxWidth="200.0" prefHeight="92.0" prefWidth="200.0">
+                     <left>
+                        <Button fx:id="leftBtn" disable="true" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="LEFT" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </left>
+                     <right>
+                        <Button fx:id="rightBtn" disable="true" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="RIGHT" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </right>
+                     <bottom>
+                        <Button fx:id="downBtn" disable="true" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="DOWN" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </bottom>
+                     <top>
+                        <Button fx:id="upBtn" disable="true" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="UP" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </top>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </BorderPane>
+               </children>
+            </StackPane>
+        </items>
+      </SplitPane>
+   </center>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <right>
+      <SplitPane dividerPositions="0.29591836734693877" orientation="VERTICAL" prefWidth="175.0" style="-fx-background-color: rgba(0,0,0,0.5); -fx-border-color: white;" BorderPane.alignment="CENTER">
+        <items>
+            <VBox prefHeight="200.0" prefWidth="175.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="94.0" style="-fx-margin: auto;" text="Attributes" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label text="Stamina: " textFill="WHITE" />
+                        <Label fx:id="staminaValue" text="0" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label text="Coins: " textFill="WHITE" />
+                        <Label fx:id="coinsValue" text="0" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label text="Moves: " textFill="WHITE" />
+                        <Label fx:id="movesValue" text="0" textFill="WHITE" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefWidth="175.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="175.0">
+                     <children>
+                        <Label text="Log" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="175.0" prefViewportWidth="175.0" prefWidth="175.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <VBox fx:id="log" prefHeight="400.0" prefWidth="175.0" style="-fx-background-color: rgba(0,0,0,0.8);">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+        </items>
+      </SplitPane>
+   </right>
+   <left>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefWidth="175.0" style="-fx-background-color: rgba(0,0,0,0.5); -fx-border-color: white;" BorderPane.alignment="CENTER">
+        <items>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="175.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="174.0" text="Enter Difficulty" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="difficultyField" text="5">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button fx:id="startBtn" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="New Game" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="helpBtn" mnemonicParsing="false" style="-fx-background-radius: 50%; -fx-background-color: rgb(47,97,39);" text="?" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="17.0" right="17.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="122.0" prefWidth="116.0" spacing="20.0">
+               <children>
+                  <Button fx:id="saveBtn" disable="true" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="Save Game" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="loadBtn" mnemonicParsing="false" style="-fx-background-color: rgb(47,97,39);" text="Load Game" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+   </left>
+</BorderPane>
